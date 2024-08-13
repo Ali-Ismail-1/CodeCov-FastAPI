@@ -1,5 +1,7 @@
 # CodeCov-FastAPI
 Test CodeCov on FastAPI
 
-This is a test project to confirm codecov works
-checking with an updated token
+This project now has code cov merged in.
+Excited to see how the coverage looks with codecov.
+
+There is also a separate coverage yaml file to enforce the testing coverage requirements around 80%.
