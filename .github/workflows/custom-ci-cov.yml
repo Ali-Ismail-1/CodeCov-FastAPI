@@ -1,0 +1,37 @@
+name: Python application
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install fastapi uvicorn pytest pytest-cov
+
+    - name: Run unit tests with coverage
+      run: |
+        pytest --cov=app --cov-report=xml:unit_coverage.xml tests/unit/
+        pytest --cov-fail-under=80 --cov=app --cov-report=term-missing tests/unit/
+
+    - name: Run integration tests with coverage
+      run: |
+        pytest --cov=app --cov-report=xml:integration_coverage.xml tests/integration/
+        pytest --cov-fail-under=70 --cov=app --cov-report=term-missing tests/integration/
+
+    - name: Check coverage threshold
+      run: |
+        coverage report --fail-under=75
