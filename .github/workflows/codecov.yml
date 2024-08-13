@@ -1,3 +1,8 @@
+name: Python application
+
+on:
+  pull_request:
+
 jobs:
   unit-test:
     name: Run unit tests
