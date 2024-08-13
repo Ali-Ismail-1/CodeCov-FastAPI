@@ -1,4 +1,4 @@
-name: Python application
+name: Custom Test Coverage
 
 on:
   push:

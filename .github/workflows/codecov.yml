@@ -1,4 +1,4 @@
-name: Python application
+name: CodeCov Upload
 
 on:
   pull_request:
