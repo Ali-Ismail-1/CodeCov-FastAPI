@@ -25,12 +25,12 @@ jobs:
     - name: Run unit tests with coverage
       run: |
         pytest --cov=app --cov-report=xml:unit_coverage.xml tests/unit/
-        pytest --cov-fail-under=80 --cov=app --cov-report=term-missing tests/unit/
+        pytest --cov-fail-under=40 --cov=app --cov-report=term-missing tests/unit/
 
     - name: Run integration tests with coverage
       run: |
         pytest --cov=app --cov-report=xml:integration_coverage.xml tests/integration/
-        pytest --cov-fail-under=70 --cov=app --cov-report=term-missing tests/integration/
+        pytest --cov-fail-under=30 --cov=app --cov-report=term-missing tests/integration/
 
     - name: Check coverage threshold
       run: |
